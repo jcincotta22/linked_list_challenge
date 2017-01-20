@@ -79,5 +79,4 @@ class LinkedList
       this_node.next_node = nil
     end
   end
-
 end
