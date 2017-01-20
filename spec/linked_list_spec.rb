@@ -4,12 +4,21 @@ require_relative "../lib/linked_list"
 describe LinkedList do
 
   let(:linked_list) { LinkedList.new }
+  let(:another_list) { LinkedList.new('Jeff', 'Jimmy', 'Joe')}
   before(:each) do
     linked_list.prepend("Adam")
     linked_list.prepend("Vikram")
     linked_list.prepend("Spencer")
   end
 
+  describe 'initialize with multiple arguements' do
+    it 'should return all the nodes in to_s' do
+      expect(another_list.to_s).to eq("LinkedList(Jeff, Jimmy, Joe)")
+      expect(another_list[0].info).to eq('Jeff')
+      expect(another_list[1].info).to eq('Jimmy')
+      expect(another_list[2].info).to eq('Joe')
+    end
+  end
   describe "#prepend" do
     it "adds a new item to an empty LinkedList" do
       empty_linked_list = LinkedList.new

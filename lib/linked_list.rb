@@ -4,8 +4,19 @@ require_relative 'node'
 class LinkedList
   attr_accessor :head
 
-  def initialize
+  def initialize(*args)
     @head = nil
+      num = 0
+    if !args.empty?
+      while num < args.length
+        if num == 0
+          self.prepend(args[num])
+        else
+          self.insert(num, args[num])
+        end
+        num+=1
+      end
+    end
   end
 
   def [](index)
@@ -79,4 +90,5 @@ class LinkedList
       this_node.next_node = nil
     end
   end
+
 end
